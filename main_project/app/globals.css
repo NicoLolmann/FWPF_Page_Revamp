@@ -1,0 +1,335 @@
+@import url("https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-pixel: "Courier New";
+  --font-sans: Arial;
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  background: #d7d3cb;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: #171717;
+  background: #d7d3cb;
+  font-family: var(--font-sans), Arial, sans-serif;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+::selection {
+  background: #e9b3b6;
+}
+
+/* Pixel font hook: replace --font-pixel with a local @font-face later if desired. */
+.pixel-corners {
+  clip-path: polygon(
+    0 8px,
+    8px 8px,
+    8px 0,
+    calc(100% - 8px) 0,
+    calc(100% - 8px) 8px,
+    100% 8px,
+    100% calc(100% - 8px),
+    calc(100% - 8px) calc(100% - 8px),
+    calc(100% - 8px) 100%,
+    8px 100%,
+    8px calc(100% - 8px),
+    0 calc(100% - 8px)
+  );
+}
+
+.pixel-panel {
+  border: 4px solid #171717;
+  background: #ffffff;
+  box-shadow: 6px 6px 0 #171717;
+}
+
+.pixel-button {
+  border: 3px solid #171717;
+  background: #e9b3b6;
+  box-shadow: 4px 4px 0 #171717;
+  font-family: var(--font-pixel), monospace;
+  font-weight: 800;
+  letter-spacing: 0;
+  transition:
+    transform 120ms ease,
+    box-shadow 120ms ease;
+}
+
+.pixel-button:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 #171717;
+}
+
+.pixel-range {
+  height: 28px;
+  border: 4px solid #171717;
+  box-shadow: inset 4px 4px 0 rgba(23, 23, 23, 0.12);
+  appearance: none;
+  cursor: pointer;
+}
+
+.pixel-range:focus-visible {
+  outline: 3px solid #c9232d;
+  outline-offset: 3px;
+}
+
+.pixel-range::-webkit-slider-runnable-track {
+  height: 20px;
+  border: 0;
+  background: transparent;
+}
+
+.pixel-range::-webkit-slider-thumb {
+  width: 26px;
+  height: 38px;
+  margin-top: -9px;
+  border: 4px solid #171717;
+  background: #c9232d;
+  box-shadow: 4px 4px 0 #171717;
+  appearance: none;
+}
+
+.pixel-range::-moz-range-track {
+  height: 20px;
+  border: 0;
+  background: transparent;
+}
+
+.pixel-range::-moz-range-progress {
+  height: 20px;
+  background: #c9232d;
+}
+
+.pixel-range::-moz-range-thumb {
+  width: 26px;
+  height: 38px;
+  border: 4px solid #171717;
+  border-radius: 0;
+  background: #c9232d;
+  box-shadow: 4px 4px 0 #171717;
+}
+
+@keyframes ballot-to-box {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 1;
+  }
+  32% {
+    transform: translate(0, var(--ballot-lift, -18px)) rotate(0deg);
+    opacity: 1;
+  }
+  62% {
+    transform: translate(var(--ballot-x, 260px), var(--ballot-lift, -18px)) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--ballot-x, 260px), var(--ballot-drop, 126px)) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+.ballot-submit-animation {
+  animation: ballot-to-box 1450ms ease-in-out forwards;
+}
+
+@keyframes immersive-paper-enter {
+  0% {
+    transform: translateY(18px) scale(0.975);
+    opacity: 0;
+  }
+  55% {
+    transform: translateY(-3px) scale(1.006);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes immersive-paper-exit {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(14px) scale(0.985);
+    opacity: 0;
+  }
+}
+
+.immersive-paper-enter {
+  animation: immersive-paper-enter 220ms ease-out both;
+  transform-origin: center top;
+}
+
+.immersive-paper-exit {
+  animation: immersive-paper-exit 180ms ease-in both;
+  transform-origin: center top;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .immersive-paper-enter,
+  .immersive-paper-exit,
+  .ballot-submit-animation {
+    animation-duration: 1ms;
+  }
+}
+
+.quest-font {
+  font-family: "Pixelify Sans", var(--font-pixel), monospace;
+}
+
+.pixquest-panel-blue,
+.pixquest-panel-yellow,
+.pixquest-chip-yellow {
+  position: relative;
+  image-rendering: pixelated;
+  background-size: 16px 16px;
+}
+
+.pixquest-panel-blue {
+  background-color: #cdeffd;
+  background-image:
+    url("/assets/pix-quest-gui/Menu Styles/Menu_Style1/LBlue/LBlue_TL.png"),
+    url("/assets/pix-quest-gui/Menu Styles/Menu_Style1/LBlue/LBlue_TR.png"),
+    url("/assets/pix-quest-gui/Menu Styles/Menu_Style1/LBlue/LBlue_BL.png"),
+    url("/assets/pix-quest-gui/Menu Styles/Menu_Style1/LBlue/LBlue_BR.png"),
+    url("/assets/pix-quest-gui/Menu Styles/Menu_Style1/LBlue/LBlue_T.png"),
+    url("/assets/pix-quest-gui/Menu Styles/Menu_Style1/LBlue/LBlue_B.png"),
+    url("/assets/pix-quest-gui/Menu Styles/Menu_Style1/LBlue/LBlue_L.png"),
+    url("/assets/pix-quest-gui/Menu Styles/Menu_Style1/LBlue/LBlue_R.png"),
+    url("/assets/pix-quest-gui/Menu Styles/Menu_Style1/LBlue/LBlue_C.png");
+  background-position:
+    top left,
+    top right,
+    bottom left,
+    bottom right,
+    top left,
+    bottom left,
+    top left,
+    top right,
+    top left;
+  background-repeat:
+    no-repeat,
+    no-repeat,
+    no-repeat,
+    no-repeat,
+    repeat-x,
+    repeat-x,
+    repeat-y,
+    repeat-y,
+    repeat;
+  box-shadow: 6px 6px 0 #171717;
+}
+
+.pixquest-panel-yellow,
+.pixquest-chip-yellow {
+  background-color: #ffe68a;
+  background-image:
+    url("/assets/pix-quest-gui/Menu Styles/Menu_Style1/Yellow/Yellow_TL.png"),
+    url("/assets/pix-quest-gui/Menu Styles/Menu_Style1/Yellow/Yellow_TR.png"),
+    url("/assets/pix-quest-gui/Menu Styles/Menu_Style1/Yellow/Yellow_BL.png"),
+    url("/assets/pix-quest-gui/Menu Styles/Menu_Style1/Yellow/Yellow_BR.png"),
+    url("/assets/pix-quest-gui/Menu Styles/Menu_Style1/Yellow/Yellow_T.png"),
+    url("/assets/pix-quest-gui/Menu Styles/Menu_Style1/Yellow/Yellow_B.png"),
+    url("/assets/pix-quest-gui/Menu Styles/Menu_Style1/Yellow/Yellow_L.png"),
+    url("/assets/pix-quest-gui/Menu Styles/Menu_Style1/Yellow/Yellow_R.png"),
+    url("/assets/pix-quest-gui/Menu Styles/Menu_Style1/Yellow/Yellow_C.png");
+  background-position:
+    top left,
+    top right,
+    bottom left,
+    bottom right,
+    top left,
+    bottom left,
+    top left,
+    top right,
+    top left;
+  background-repeat:
+    no-repeat,
+    no-repeat,
+    no-repeat,
+    no-repeat,
+    repeat-x,
+    repeat-x,
+    repeat-y,
+    repeat-y,
+    repeat;
+}
+
+.pixquest-panel-yellow {
+  box-shadow: 4px 4px 0 #171717;
+}
+
+.pixquest-chip-yellow {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 8px 12px;
+  font-weight: 800;
+  color: #171717;
+}
+
+
+.header-pixel-corners {
+  clip-path: polygon(
+    0 12px,
+    12px 12px,
+    12px 0,
+    calc(100% - 12px) 0,
+    calc(100% - 12px) 12px,
+    100% 12px,
+    100% calc(100% - 12px),
+    calc(100% - 12px) calc(100% - 12px),
+    calc(100% - 12px) 100%,
+    12px 100%,
+    12px calc(100% - 12px),
+    0 calc(100% - 12px)
+  );
+}
+
+.header-pixel-corners-sm {
+  clip-path: polygon(
+    0 6px,
+    6px 6px,
+    6px 0,
+    calc(100% - 6px) 0,
+    calc(100% - 6px) 6px,
+    100% 6px,
+    100% calc(100% - 6px),
+    calc(100% - 6px) calc(100% - 6px),
+    calc(100% - 6px) 100%,
+    6px 100%,
+    6px calc(100% - 6px),
+    0 calc(100% - 6px)
+  );
+}
+
+.header-pixel-panel-shadow {
+  box-shadow: none;
+  filter: drop-shadow(6px 6px 0 #171717);
+}
+
+.header-pixel-chip-shadow {
+  box-shadow: none;
+  filter: drop-shadow(3px 3px 0 #171717);
+}
