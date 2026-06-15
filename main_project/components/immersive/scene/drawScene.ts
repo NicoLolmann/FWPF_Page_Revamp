@@ -374,7 +374,29 @@ export function drawPollingStationScene({
   );
 
   addSprite("door-open", 630, 432, 0.63);
-  addSprite("rules-table-side", 748, 320, 1.1);
+
+  const rulesTableX = 730;
+  const rulesTableY = 320;
+  const rulesTableScale = 1.1;
+  const rulesWomanOffsetX = 80;
+  const rulesWomanOffsetY = 100;
+  const rulesWomanX = rulesTableX + rulesWomanOffsetX;
+  const rulesWomanY = rulesTableY + rulesWomanOffsetY;
+  const rulesWomanScale = 0.18;
+  const rulesWomanAnimationSpeed = 0.045;
+  addAnimatedSprite(
+    [
+      "girl-frame-1-aligned",
+      "girl-frame-2-aligned",
+      "girl-frame-3-aligned",
+      "girl-frame-4-aligned",
+    ],
+    rulesWomanX,
+    rulesWomanY,
+    rulesWomanScale,
+    rulesWomanAnimationSpeed,
+  );
+  addSprite("rules-table-side", rulesTableX, rulesTableY, rulesTableScale);
 
   for (let index = 0; index < 4; index += 1) {
     const x = 190 + index * 140;

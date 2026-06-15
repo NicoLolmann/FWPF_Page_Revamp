@@ -1,4 +1,4 @@
-const spriteAssetVersion = 10;
+const spriteAssetVersion = 12;
 
 export const immersiveSpriteNames = [
   "door-open",
@@ -28,6 +28,10 @@ export const immersiveSpriteNames = [
   "boy-frame-2",
   "boy-frame-3",
   "boy-frame-4",
+  "girl-frame-1-aligned",
+  "girl-frame-2-aligned",
+  "girl-frame-3-aligned",
+  "girl-frame-4-aligned",
 ] as const;
 
 export type ImmersiveSpriteName = (typeof immersiveSpriteNames)[number];

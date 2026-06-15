@@ -263,14 +263,14 @@ export function ImmersivePollingStation({
         <div ref={mountRef} className="grid h-full w-full place-items-center" />
         <div className="pointer-events-none absolute left-5 top-5 grid gap-2">
           {!hideStationHint && (hoveredStation || selectedStation) ? (
-            <div className="border-4 border-ink bg-ballot p-3 shadow-pixel-sm">
-              <p className="font-pixel text-xs font-black uppercase text-ink/70">
+            <div className="border-4 border-ink bg-ballot p-4 shadow-pixel-sm">
+              <p className="font-pixel text-sm font-black uppercase text-ink/70">
                 {hoveredStation ? "Station" : "Ausgewählt"}
               </p>
-              <p className="mt-1 font-pixel text-lg font-black">
+              <p className="mt-1 font-pixel text-xl font-black">
                 {(hoveredStation ?? selectedStation)?.label}
               </p>
-              <p className="mt-1 max-w-64 text-sm leading-5">
+              <p className="mt-2 max-w-80 text-base leading-6">
                 {(hoveredStation ?? selectedStation)?.detail}
               </p>
             </div>
@@ -301,14 +301,14 @@ export function ImmersivePollingStation({
         <div ref={mountRef} />
         <div className="pointer-events-none absolute left-4 top-4 grid gap-2">
           {!hideStationHint && (hoveredStation || selectedStation) ? (
-            <div className="border-4 border-ink bg-ballot p-3 shadow-pixel-sm">
-              <p className="font-pixel text-xs font-black uppercase text-ink/70">
+            <div className="border-4 border-ink bg-ballot p-4 shadow-pixel-sm">
+              <p className="font-pixel text-sm font-black uppercase text-ink/70">
                 {hoveredStation ? "Station" : "Ausgewählt"}
               </p>
-              <p className="mt-1 font-pixel text-lg font-black">
+              <p className="mt-1 font-pixel text-xl font-black">
                 {(hoveredStation ?? selectedStation)?.label}
               </p>
-              <p className="mt-1 max-w-64 text-sm leading-5">
+              <p className="mt-2 max-w-80 text-base leading-6">
                 {(hoveredStation ?? selectedStation)?.detail}
               </p>
             </div>
