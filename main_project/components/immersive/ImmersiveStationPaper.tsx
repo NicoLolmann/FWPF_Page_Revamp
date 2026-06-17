@@ -40,10 +40,10 @@ const stationTitles: Record<ImmersiveStationContent, string> = {
 };
 
 const paperPositionClasses: Record<ImmersiveStationContent, string> = {
-  rules: "inset-x-6 bottom-12 top-12 md:left-[8%] md:right-[40%]",
-  wahl: "inset-x-6 bottom-12 top-12 md:inset-x-16",
-  timetable: "inset-x-6 bottom-12 top-12 md:inset-x-16",
-  review: "inset-x-6 bottom-12 top-12 md:left-[40%] md:right-[8%]",
+  rules: "inset-x-3 bottom-4 top-4 sm:inset-x-6 sm:bottom-8 sm:top-8 xl:left-[8%] xl:right-[40%]",
+  wahl: "inset-x-3 bottom-4 top-4 sm:inset-x-6 sm:bottom-8 sm:top-8 xl:inset-x-16",
+  timetable: "inset-x-3 bottom-4 top-4 sm:inset-x-6 sm:bottom-8 sm:top-8 xl:inset-x-16",
+  review: "inset-x-3 bottom-4 top-4 sm:inset-x-6 sm:bottom-8 sm:top-8 xl:left-[40%] xl:right-[8%]",
 };
 
 function findModule(moduleId: string) {
@@ -108,21 +108,21 @@ export function ImmersiveStationPaper({
 
   return (
     <div
-      className={`absolute z-20 overflow-hidden border-4 border-ink bg-ballot shadow-pixel ${
+      className={`absolute z-20 flex min-h-0 flex-col overflow-hidden border-4 border-ink bg-ballot shadow-pixel ${
         isClosing ? "immersive-paper-exit" : "immersive-paper-enter"
       } ${paperPositionClasses[station]}`}
     >
-      <div className="flex items-center justify-between gap-4 border-b-4 border-ink bg-paper px-4 py-3">
-        <div>
+      <div className="flex shrink-0 flex-wrap items-center justify-between gap-3 border-b-4 border-ink bg-paper px-3 py-2 sm:gap-4 sm:px-4 sm:py-3">
+        <div className="min-w-0">
           <p className="font-pixel text-xs font-black uppercase text-ink/70">
             Aufgefalteter Stimmzettel
           </p>
-          <h2 className="mt-1 font-pixel text-xl font-black">
+          <h2 className="mt-1 break-words font-pixel text-lg font-black sm:text-xl">
             {stationTitles[station]}
           </h2>
         </div>
         <button
-          className="pixel-button bg-white px-3 py-2 text-xs"
+          className="pixel-button shrink-0 bg-white px-3 py-2 text-xs"
           type="button"
           onClick={closeWithAnimation}
         >
@@ -130,11 +130,11 @@ export function ImmersiveStationPaper({
         </button>
       </div>
 
-      <div className="h-[calc(100%-84px)] overflow-y-auto bg-[#f8f5ee] p-5">
+      <div className="min-h-0 min-w-0 flex-1 overflow-y-auto bg-[#f8f5ee] p-3 sm:p-5">
         {station === "rules" ? <RulebookNotice /> : null}
 
         {station === "wahl" ? (
-          <div className="grid gap-6">
+          <div className="grid min-w-0 gap-6">
             <section id="immersive-wahlrahmen">
               <SwsPanel
                 desiredSws={desiredSws}
@@ -158,7 +158,7 @@ export function ImmersiveStationPaper({
         ) : null}
 
         {station === "review" ? (
-          <div className="grid gap-6">
+          <div className="grid min-w-0 gap-6">
             <SummaryPanel
               selectedModules={selectedModules}
               neverModules={neverModules}

@@ -166,24 +166,25 @@ export function TimetableModal({
             <p className="pt-3 text-right text-sm">Sommersemester 2026</p>
           </header>
 
-          <table className="w-full table-fixed border-collapse border border-black text-center text-[12px]">
-            <thead>
-              <tr>
-                <th className="w-14 border border-black py-2" />
-                {timetableDays.map((day) => (
-                  <th key={day} className="border border-black py-2 text-sm font-black">
-                    {day}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {timeSlots.map((slot) => (
-                <tr key={slot} className="h-24 align-top">
-                  <th className="border border-black px-2 text-left align-middle text-sm font-black">
-                    {slot}
-                  </th>
-                  {timetableDays.map((day) => {
+          <div className="overflow-x-auto pb-2">
+            <table className="mx-auto min-w-[980px] table-fixed border-collapse border border-black text-center text-[12px]">
+              <thead>
+                <tr>
+                  <th className="w-14 border border-black py-2" />
+                  {timetableDays.map((day) => (
+                    <th key={day} className="border border-black py-2 text-sm font-black">
+                      {day}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {timeSlots.map((slot) => (
+                  <tr key={slot} className="h-24 align-top">
+                    <th className="border border-black px-2 text-left align-middle text-sm font-black">
+                      {slot}
+                    </th>
+                    {timetableDays.map((day) => {
                     const entries = timetableEntries.filter(
                       (entry) => entry.day === day && entry.slot === slot,
                     );
@@ -234,8 +235,9 @@ export function TimetableModal({
                   })}
                 </tr>
               ))}
-            </tbody>
-          </table>
+              </tbody>
+            </table>
+          </div>
 
           <footer className="mt-2 flex justify-between text-xs">
             <p>Abkürzungen anklicken oder per Hover anzeigen</p>

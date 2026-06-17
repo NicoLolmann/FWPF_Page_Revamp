@@ -98,33 +98,33 @@ export function SwsPanel({
   }
 
   return (
-    <section className="pixel-panel p-5 md:p-6">
+    <section className="pixel-panel p-4 md:p-6">
       <div className="mb-5 flex flex-wrap items-end justify-between gap-4 border-b-4 border-ink pb-5">
         <div className="max-w-3xl">
           <p className="font-pixel text-sm font-black uppercase text-ink/70">Wahlrahmen</p>
-          <h2 className="mt-2 font-pixel text-2xl font-black leading-9">
+          <h2 className="mt-2 font-pixel text-xl font-black leading-8 sm:text-2xl sm:leading-9">
             Semesterwochenstunden festlegen
           </h2>
         </div>
       </div>
 
       <div className="grid gap-5 lg:grid-cols-2 lg:items-stretch">
-        <div className="flex h-full flex-col border-4 border-ink bg-paper p-4">
+        <div className="flex h-full flex-col border-4 border-ink bg-paper p-3 sm:p-4">
           <div className="grid gap-4 sm:grid-cols-2">
-            <div className="border-4 border-ink bg-white p-4 shadow-pixel-sm">
+            <div className="border-4 border-ink bg-white p-3 shadow-pixel-sm sm:p-4">
               <p className="font-pixel text-xs font-black uppercase text-ink/70">
                 Gewünschte SWS
               </p>
-              <p className="mt-2 font-pixel text-4xl font-black">{draftSws}</p>
+              <p className="mt-2 font-pixel text-3xl font-black sm:text-4xl">{draftSws}</p>
               <p className="mt-2 text-sm leading-6">
                 Regler in 2-SWS-Schritten.
               </p>
             </div>
-            <div className="border-4 border-ink bg-white p-4 shadow-pixel-sm">
+            <div className="border-4 border-ink bg-white p-3 shadow-pixel-sm sm:p-4">
               <p className="font-pixel text-xs font-black uppercase text-ink/70">
                 Modulanzahl
               </p>
-              <p className="mt-2 font-pixel text-4xl font-black">{draftModuleCount}</p>
+              <p className="mt-2 font-pixel text-3xl font-black sm:text-4xl">{draftModuleCount}</p>
               <p className="mt-2 text-sm leading-6">
                 Hinweis: Es gibt Module mit 4 oder 2 SWS
               </p>
@@ -197,7 +197,7 @@ export function SwsPanel({
             caption=""
             tone="sky"
           />
-          <div className="flex h-full flex-col justify-between border-4 border-ink bg-paper p-4 md:col-span-2">
+          <div className="flex h-full flex-col justify-between border-4 border-ink bg-paper p-3 sm:p-4 md:col-span-2">
             <div>
               <p className="font-pixel text-sm font-black uppercase">
                 Finaler Wahlrahmen

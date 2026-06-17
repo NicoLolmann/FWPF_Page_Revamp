@@ -44,20 +44,20 @@ export function BallotPaper({
   });
 
   return (
-    <section className="pixel-panel bg-ballot p-5">
+    <section className="pixel-panel bg-ballot p-4 sm:p-5">
       <div className="flex flex-wrap items-end justify-between gap-4 border-b-4 border-ink pb-4">
         <div>
           <p className="font-pixel text-sm font-black uppercase text-ink/70">
             Mein Stimmzettel
           </p>
-          <h2 className="mt-2 font-pixel text-2xl font-black">Prioritäten festlegen</h2>
+          <h2 className="mt-2 font-pixel text-xl font-black sm:text-2xl">Prioritäten festlegen</h2>
         </div>
-        <div className="border-4 border-ink bg-amber px-3 py-2 font-pixel text-xs font-black uppercase shadow-pixel-sm">
+        <div className="border-4 border-ink bg-amber px-3 py-2 font-pixel text-[11px] font-black uppercase shadow-pixel-sm sm:text-xs">
           {selectedCount}/{minimumSlotCount} Mindestauswahl
         </div>
       </div>
 
-      <div className="mt-4 border-4 border-ink bg-paper p-4">
+      <div className="mt-4 border-4 border-ink bg-paper p-3 sm:p-4">
         <p className="font-pixel text-sm font-black uppercase">Prioritätsregel</p>
         <p className="mt-2 text-sm leading-6">
           Ziehe Module aus der linken Liste hierher. Als Orientierung sollten
@@ -100,7 +100,7 @@ export function BallotPaper({
 
       <div
         ref={setNeverRef}
-        className={`mt-6 border-4 border-ink p-4 shadow-pixel-sm transition-colors ${
+        className={`mt-6 border-4 border-ink p-3 shadow-pixel-sm transition-colors sm:p-4 ${
           isNeverOver ? "bg-amber" : "bg-coral"
         }`}
       >
