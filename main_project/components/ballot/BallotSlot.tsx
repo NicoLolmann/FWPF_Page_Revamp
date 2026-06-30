@@ -28,7 +28,7 @@ function EmptyBallotSlot({ index }: { index: number }) {
 
   return (
     <div ref={setNodeRef} className="grid grid-cols-[3.25rem_1fr] gap-3">
-      <div className="grid h-full min-h-20 place-items-center border-4 border-ink bg-ink font-pixel text-lg font-black text-white">
+      <div className="grid h-full min-h-20 place-items-center border-3 border-ink bg-paper font-sans text-lg font-black leading-none text-ink shadow-pixel-sm">
         {index}
       </div>
       <div
@@ -72,7 +72,7 @@ function FilledBallotSlot({
         zIndex: isDragging ? 20 : "auto",
       }}
     >
-      <div className="grid h-full min-h-20 place-items-center border-4 border-ink bg-ink font-pixel text-lg font-black text-white">
+      <div className="grid h-full min-h-20 place-items-center border-3 border-ink bg-white font-sans text-lg font-black leading-none text-ink shadow-pixel-sm">
         {index}
       </div>
       <div className="relative touch-none" {...attributes} {...listeners}>
