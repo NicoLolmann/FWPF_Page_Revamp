@@ -76,13 +76,12 @@ export function BallotBox({
           <p className="font-pixel text-sm font-black uppercase text-ink">
             Abgabe
           </p>
-          <h2 className="mt-2 font-pixel text-2xl font-black">
+          <h2 className="mt-2 font-pixel text-[1.65rem] font-black leading-8">
             Stimmzettel einwerfen
           </h2>
-          <p className="mt-3 max-w-2xl leading-7">
-            Wenn dein Stimmzettel vollständig wirkt, kannst du ihn
-            einwerfen. Solange die Einschreibung noch offen ist, lässt sich die
-            Auswahl wieder zurücknehmen.
+          <p className="mt-3 max-w-2xl text-[18px] leading-8">
+            Wirkt alles vollständig, kannst du den Stimmzettel einwerfen. Die
+            Auswahl lässt sich in dieser Testansicht wieder zurücknehmen.
           </p>
           <div className="mt-5 grid gap-4">
             <div className="flex flex-wrap items-center gap-3">

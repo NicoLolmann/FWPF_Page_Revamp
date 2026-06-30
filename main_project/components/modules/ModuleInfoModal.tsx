@@ -18,7 +18,7 @@ function DetailRow({
   return (
     <div className="grid gap-1 border-b-2 border-ink/15 py-3 md:grid-cols-[12rem_1fr]">
       <dt className="font-pixel text-xs font-black uppercase text-ink/70">{label}</dt>
-      <dd className="leading-6">{children}</dd>
+      <dd className="text-[17px] leading-7">{children}</dd>
     </div>
   );
 }
@@ -50,7 +50,7 @@ export function ModuleInfoModal({ module, onClose }: ModuleInfoModalProps) {
             <h2 id="module-info-title" className="mt-2 text-2xl font-black leading-8">
               {module.title}
             </h2>
-            <p className="mt-2 text-sm leading-6">{details.language}</p>
+            <p className="mt-2 text-[17px] leading-7">{details.language}</p>
           </div>
           <button
             className="border-3 border-ink bg-paper px-3 py-2 font-pixel text-xs font-black uppercase shadow-[3px_3px_0_#171717] transition-transform hover:-translate-y-0.5 hover:bg-white active:translate-x-0.5 active:translate-y-0.5 active:shadow-[1px_1px_0_#171717]"

@@ -12,7 +12,7 @@ const config: Config = {
         3: "3px",
       },
       colors: {
-        ink: "#171717",
+        ink: "#24211e",
         paper: "#ece6dc",
         grid: "#d4cabd",
         ballot: "#ffffff",
@@ -25,8 +25,8 @@ const config: Config = {
         "ohm-soft": "#f3d8da",
       },
       boxShadow: {
-        pixel: "6px 6px 0 #171717",
-        "pixel-sm": "4px 4px 0 #171717",
+        pixel: "4px 4px 0 rgba(36, 33, 30, 0.9)",
+        "pixel-sm": "3px 3px 0 rgba(36, 33, 30, 0.9)",
         "pixel-inset": "inset 4px 4px 0 rgba(23, 23, 23, 0.12)",
       },
       fontFamily: {

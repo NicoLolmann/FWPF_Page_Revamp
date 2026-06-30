@@ -20,7 +20,7 @@ export function InfoCard({ label, value, detail, tone = "white" }: InfoCardProps
     <article className={`border-4 border-ink p-4 shadow-pixel-sm ${toneClasses[tone]}`}>
       <p className="font-pixel text-xs font-black uppercase leading-5">{label}</p>
       <h3 className="mt-2 text-xl font-black leading-7">{value}</h3>
-      {detail ? <p className="mt-3 text-sm leading-6">{detail}</p> : null}
+      {detail ? <p className="mt-3 text-[17px] leading-7">{detail}</p> : null}
     </article>
   );
 }

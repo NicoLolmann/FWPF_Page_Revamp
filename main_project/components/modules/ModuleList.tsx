@@ -90,7 +90,7 @@ export function ModuleList({
           <p className="font-pixel text-sm font-black uppercase text-ink/70">
             Verfügbare Module
           </p>
-          <h2 className="mt-2 font-pixel text-2xl font-black">Module wählen</h2>
+          <h2 className="mt-2 font-pixel text-[1.65rem] font-black leading-8">Module wählen</h2>
         </div>
         <div className="border-4 border-ink bg-paper px-3 py-2 font-pixel text-xs font-black shadow-pixel-sm">
           {modules.length} Module verfügbar
@@ -103,7 +103,7 @@ export function ModuleList({
         </label>
         <input
           id="module-search"
-          className="w-full border-4 border-ink bg-white px-4 py-3 shadow-pixel-sm outline-none focus:bg-paper"
+          className="w-full border-4 border-ink bg-white px-4 py-3 text-[16px] shadow-pixel-sm outline-none focus:bg-paper"
           placeholder="Modul suchen..."
           type="search"
           value={query}

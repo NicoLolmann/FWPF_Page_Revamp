@@ -99,11 +99,11 @@ export function ModuleCard({
       }`}
     >
       <div className="flex items-start justify-between gap-3">
-        <h3 className={`${compact ? "text-sm" : "text-base"} font-black leading-6`}>
+        <h3 className={`${compact ? "text-[15px]" : "text-[17px]"} font-black leading-6`}>
           {module.title}
         </h3>
         <div className="flex shrink-0 items-start gap-4">
-          <span className="border-3 border-ink bg-paper px-2 py-1 font-pixel text-xs font-black">
+          <span className="border-3 border-ink bg-paper px-2 py-1 font-pixel text-[13px] font-black">
             {module.sws} SWS
           </span>
           {onOpenInfo ? (
@@ -124,7 +124,7 @@ export function ModuleCard({
         </div>
       </div>
       {!compact ? (
-        <p className="mt-2 text-sm leading-5 text-ink/75">{categoryLabels[module.category]}</p>
+        <p className="mt-2 text-[15px] leading-6 text-ink/75">{categoryLabels[module.category]}</p>
       ) : null}
       <div className="mt-3 flex items-start justify-between gap-3">
         <div className="flex flex-wrap gap-2">

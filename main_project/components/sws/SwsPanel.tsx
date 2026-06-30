@@ -6,7 +6,7 @@ type PixelProgressProps = {
   label: string;
   current: number;
   target: number;
-  caption: string;
+  caption?: string;
   tone: "mint" | "sky" | "amber";
 };
 
@@ -64,7 +64,7 @@ function PixelProgress({ label, current, target, caption, tone }: PixelProgressP
       <div className="mt-3 h-8 border-4 border-ink bg-white p-1 shadow-pixel-inset">
         <div className={`h-full ${toneClasses[tone]}`} style={{ width: `${width}%` }} />
       </div>
-      <p className="mt-3 text-sm leading-6">{caption}</p>
+      {caption ? <p className="mt-3 text-[17px] leading-7">{caption}</p> : null}
     </div>
   );
 }
@@ -102,7 +102,7 @@ export function SwsPanel({
       <div className="mb-5 flex flex-wrap items-end justify-between gap-4 border-b-4 border-ink pb-5">
         <div className="max-w-3xl">
           <p className="font-pixel text-sm font-black uppercase text-ink/70">Wahlrahmen</p>
-          <h2 className="mt-2 font-pixel text-xl font-black leading-8 sm:text-2xl sm:leading-9">
+          <h2 className="mt-2 font-pixel text-xl font-black leading-8 sm:text-[1.65rem]">
             Semesterwochenstunden festlegen
           </h2>
         </div>
@@ -116,8 +116,8 @@ export function SwsPanel({
                 Gewünschte SWS
               </p>
               <p className="mt-2 font-pixel text-3xl font-black sm:text-4xl">{draftSws}</p>
-              <p className="mt-2 text-sm leading-6">
-                Regler in 2-SWS-Schritten.
+              <p className="mt-2 text-[17px] leading-7">
+                Wähle in 2-SWS-Schritten.
               </p>
             </div>
             <div className="border-4 border-ink bg-white p-3 shadow-pixel-sm sm:p-4">
@@ -125,8 +125,8 @@ export function SwsPanel({
                 Modulanzahl
               </p>
               <p className="mt-2 font-pixel text-3xl font-black sm:text-4xl">{draftModuleCount}</p>
-              <p className="mt-2 text-sm leading-6">
-                Hinweis: Es gibt Module mit 4 oder 2 SWS
+              <p className="mt-2 text-[17px] leading-7">
+                Kombiniere 2- und 4-SWS-Module.
               </p>
             </div>
           </div>
@@ -157,7 +157,7 @@ export function SwsPanel({
                 Module für diesen Umfang
               </p>
               {draftSws > 0 ? (
-                <p className="font-pixel text-xs font-black uppercase text-ink/70">
+                <p className="font-pixel text-sm font-black uppercase text-ink/70">
                   mind. {draftPrioritySlots} Prioritäten
                 </p>
               ) : null}
@@ -203,10 +203,10 @@ export function SwsPanel({
                 Finaler Wahlrahmen
               </p>
               <p className="mt-2 text-3xl font-black">{desiredSws} SWS</p>
-              <p className="mt-2 leading-6">
+              <p className="mt-2 text-[17px] leading-7">
                 {desiredModuleCount === 0
-                  ? "Noch keine zusätzlichen SWS gewählt."
-                  : `${desiredModuleCount} gewünschte Module ergeben mindestens ${minimumPrioritySlots} Prioritäten.`}
+                  ? "Noch kein Wahlrahmen übernommen."
+                  : `${desiredModuleCount} Module gewählt: mindestens ${minimumPrioritySlots} Prioritäten.`}
               </p>
             </div>
             {hasUnappliedChanges ? (

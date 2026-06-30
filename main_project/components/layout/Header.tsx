@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { StatusBadge } from "@/components/ui/StatusBadge";
+import { ElectionCountdown } from "@/components/workflow/ElectionCountdown";
 
 function PersonalHighlight({ children }: { children: ReactNode }) {
   return <span className="font-semibold text-ink">{children}</span>;
@@ -32,8 +32,8 @@ type HeaderProps = {
 export function Header({ isSubmitted = false }: HeaderProps) {
   return (
     <header className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-stretch">
-      <div className="pixel-panel flex min-h-40 flex-col justify-center p-5 md:p-6">
-        <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
+      <div className="pixel-panel flex min-h-40 flex-col justify-start p-4 md:p-5">
+        <div className="mb-3 flex flex-wrap items-start justify-between gap-3">
           <div className="flex flex-wrap items-center gap-3">
             <span className="border-2 border-ink bg-white px-2 py-1 font-pixel text-[13px] font-black uppercase shadow-[2px_2px_0_#171717]">
               Max Mustermann
@@ -42,18 +42,23 @@ export function Header({ isSubmitted = false }: HeaderProps) {
               Matrikel-Nr. 1234567
             </span>
           </div>
-          {isSubmitted ? (
-            <StatusBadge tone="success">Einschreibung abgeschlossen</StatusBadge>
-          ) : null}
+          <div className="grid justify-items-end gap-1.5">
+            <ElectionCountdown />
+            {isSubmitted ? (
+              <div className="min-w-[17rem] border-3 border-ink bg-mint px-3 py-1.5 text-center font-pixel text-sm font-black uppercase shadow-pixel-sm">
+                Einschreibung abgeschlossen
+              </div>
+            ) : null}
+          </div>
         </div>
         <p className="font-pixel text-xs font-black uppercase tracking-normal text-ink/70">
           Einschreibung zu den FWPF ·{" "}
           <PersonalHighlight>Studienordnung ab 2009/10</PersonalHighlight>
         </p>
-        <h1 className="mt-3 max-w-4xl font-pixel text-4xl font-black leading-tight text-ink md:text-6xl">
+        <h1 className="mt-2 max-w-4xl font-pixel text-4xl font-black leading-tight text-ink md:text-6xl">
           FWPF Wahlzettel
         </h1>
-        <p className="mt-4 max-w-4xl text-lg leading-7">
+        <p className="mt-3 max-w-4xl text-lg leading-7">
           Dein digitaler FWPF-Stimmzettel für das kommende Semester im{" "}
           <PersonalHighlight>Bachelor Wirtschaftsinformatik</PersonalHighlight>.
         </p>

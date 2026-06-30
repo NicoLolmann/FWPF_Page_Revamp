@@ -29,11 +29,10 @@ export function SummaryPanel({
           <p className="font-pixel text-sm font-black uppercase text-ink/70">
             Stimmzettel prüfen
           </p>
-          <h2 className="mt-2 font-pixel text-xl font-black sm:text-2xl">Zusammenfassung</h2>
-          <p className="mt-3 leading-7">
-            Prüfe hier, ob deine Prioritäten breit genug aufgestellt sind. Je mehr
-            sinnvolle Alternativen du angibst, desto besser kann die spätere
-            Verteilung eine passende Auswahl finden.
+          <h2 className="mt-2 font-pixel text-xl font-black sm:text-[1.65rem]">Zusammenfassung</h2>
+          <p className="mt-3 text-[17px] leading-7">
+            Prüfe, ob dein Stimmzettel genug Alternativen enthält. Mehr sinnvolle
+            Prioritäten erleichtern die spätere Verteilung.
           </p>
         </div>
         <div className="grid min-w-0 gap-4 md:grid-cols-3">
@@ -63,20 +62,19 @@ export function SummaryPanel({
       <div className="mt-5 grid gap-4 md:grid-cols-2">
         <div className="border-4 border-ink bg-amber p-4">
           <p className="font-pixel text-sm font-black uppercase">Hinweis</p>
-          <p className="mt-2 leading-6">
-            Bei {desiredSws} SWS rechnen wir mit {desiredModuleCount}{" "}
-            gewünschten Modulen. Dafür sollten mindestens {expectedPriorities}{" "}
-            Module priorisiert werden.
+          <p className="mt-2 text-[17px] leading-7">
+            Für {desiredSws} SWS und {desiredModuleCount} gewünschte Module
+            empfehlen wir {expectedPriorities} Prioritäten.
           </p>
         </div>
         <div className={`border-4 border-ink p-4 ${hasEnoughPriorities ? "bg-mint" : "bg-coral"}`}>
           <p className="font-pixel text-sm font-black uppercase">
             {hasEnoughPriorities ? "Erfolg" : "Noch zu wenig Auswahl"}
           </p>
-          <p className="mt-2 leading-6">
+          <p className="mt-2 text-[17px] leading-7">
             {hasEnoughPriorities
-              ? "Die Mindestanzahl an Prioritäten ist erreicht. Die Prozentwerte orientieren sich an der letzten BA-FWPF-Verteilung und sind keine individuelle Vergabeprognose."
-              : `Du kannst den Stimmzettel auch mit weniger Prioritäten abgeben. Es fehlen aber noch ${expectedPriorities - compactSelection.length} Prioritäten zur empfohlenen Auswahlbreite. Dadurch sinkt die Chance, deine Wunschmodule oder überhaupt ein passendes Modul zu bekommen.`}
+              ? "Die empfohlene Auswahlbreite ist erreicht. Die Prozentwerte zeigen nur die letzte BA-FWPF-Runde."
+              : `Es fehlen ${expectedPriorities - compactSelection.length} empfohlene Prioritäten. Weniger Auswahl kann deine Zuteilungschancen senken.`}
           </p>
         </div>
       </div>

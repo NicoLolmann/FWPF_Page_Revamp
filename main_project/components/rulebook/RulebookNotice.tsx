@@ -281,7 +281,7 @@ export function RulebookNotice() {
             <p className="font-pixel text-xs font-black uppercase text-ink/60">
               Regelwerk
             </p>
-            <h3 className="mt-2 font-pixel text-2xl font-black">
+            <h3 className="mt-2 font-pixel text-[1.65rem] font-black leading-8">
               Regelblatt für deinen digitalen Stimmzettel
             </h3>
           </div>
@@ -329,7 +329,7 @@ export function RulebookNotice() {
                   <h4 className="font-pixel text-sm font-black uppercase">
                     {rule.title}
                   </h4>
-                  <p className="mt-2 leading-6">{rule.body}</p>
+                  <p className="mt-2 text-[17px] leading-7">{rule.body}</p>
                 </div>
               </section>
             ))}
@@ -353,7 +353,7 @@ export function RulebookNotice() {
                     >
                       {check.complete ? "✓" : "✕"}
                     </span>
-                    <p className="text-sm leading-5">{check.label}</p>
+                    <p className="text-[15px] leading-5">{check.label}</p>
                   </div>
                 ))}
               </div>
@@ -367,8 +367,8 @@ export function RulebookNotice() {
               <span className="font-pixel text-sm font-black uppercase">
                 Stundenplan beachten
               </span>
-              <span className="mt-2 block text-sm leading-6">
-                Öffne den aktuellen Stundenplan und prüfe die Verteilung der Module.
+              <span className="mt-2 block text-[17px] leading-7">
+                Prüfe Zeiten und Überschneidungen im Stundenplan.
               </span>
             </button>
           </aside>

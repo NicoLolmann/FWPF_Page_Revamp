@@ -261,16 +261,16 @@ export function ImmersivePollingStation({
     return (
       <section className="relative h-dvh w-dvw overflow-hidden bg-[#24211e]">
         <div ref={mountRef} className="grid h-full w-full place-items-center" />
-        <div className="pointer-events-none absolute left-5 top-5 grid gap-2">
+        <div className="pointer-events-none absolute left-5 top-24 z-40 grid gap-2">
           {!hideStationHint && (hoveredStation || selectedStation) ? (
-            <div className="border-4 border-ink bg-ballot p-4 shadow-pixel-sm">
-              <p className="font-pixel text-sm font-black uppercase text-ink/70">
+            <div className="border-4 border-ink bg-ballot p-5 shadow-pixel">
+              <p className="font-pixel text-base font-black uppercase text-ink/70">
                 {hoveredStation ? "Station" : "Ausgewählt"}
               </p>
-              <p className="mt-1 font-pixel text-xl font-black">
+              <p className="mt-1 font-pixel text-[1.75rem] font-black leading-9">
                 {(hoveredStation ?? selectedStation)?.label}
               </p>
-              <p className="mt-2 max-w-80 text-base leading-6">
+              <p className="mt-3 max-w-[24rem] text-[18px] leading-8">
                 {(hoveredStation ?? selectedStation)?.detail}
               </p>
             </div>
@@ -301,14 +301,14 @@ export function ImmersivePollingStation({
         <div ref={mountRef} />
         <div className="pointer-events-none absolute left-4 top-4 grid gap-2">
           {!hideStationHint && (hoveredStation || selectedStation) ? (
-            <div className="border-4 border-ink bg-ballot p-4 shadow-pixel-sm">
-              <p className="font-pixel text-sm font-black uppercase text-ink/70">
+            <div className="border-4 border-ink bg-ballot p-5 shadow-pixel">
+              <p className="font-pixel text-base font-black uppercase text-ink/70">
                 {hoveredStation ? "Station" : "Ausgewählt"}
               </p>
-              <p className="mt-1 font-pixel text-xl font-black">
+              <p className="mt-1 font-pixel text-[1.75rem] font-black leading-9">
                 {(hoveredStation ?? selectedStation)?.label}
               </p>
-              <p className="mt-2 max-w-80 text-base leading-6">
+              <p className="mt-3 max-w-[24rem] text-[18px] leading-8">
                 {(hoveredStation ?? selectedStation)?.detail}
               </p>
             </div>

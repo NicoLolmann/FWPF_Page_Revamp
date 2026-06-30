@@ -11,6 +11,8 @@ import {
 import { ImmersiveStationPaper } from "@/components/immersive/ImmersiveStationPaper";
 import type { ImmersiveStationContent } from "@/components/immersive/scene/types";
 import { WorkflowStatusContext } from "@/components/workflow/WorkflowStatusContext";
+import { WorkflowProgressBar } from "@/components/workflow/WorkflowProgressBar";
+import { ElectionCountdown } from "@/components/workflow/ElectionCountdown";
 
 type FwpfPageShellProps = {
   children: ReactNode;
@@ -114,16 +116,22 @@ export function FwpfPageShell({ children }: FwpfPageShellProps) {
             hideStationHint={Boolean(activeImmersiveStation)}
           />
           {!activeImmersiveStation ? (
-            <div className="absolute right-5 top-5 z-30">
-              <ImmersiveModeToggle
-                enabled={isImmersiveMode}
-                onChange={(enabled) => {
-                  setImmersiveMode(enabled);
-                  setActiveImmersiveStation(null);
-                }}
-                variant="floating"
-              />
-            </div>
+            <>
+              <div className="absolute right-5 top-4 z-30 flex items-start gap-3">
+                <ImmersiveModeToggle
+                  enabled={isImmersiveMode}
+                  onChange={(enabled) => {
+                    setImmersiveMode(enabled);
+                    setActiveImmersiveStation(null);
+                  }}
+                  variant="floating"
+                />
+                <ElectionCountdown variant="hud" />
+              </div>
+              <div className="absolute left-5 top-5 z-30">
+                <WorkflowProgressBar variant="hud" />
+              </div>
+            </>
           ) : null}
           {activeImmersiveStation ? (
             <ImmersiveStationPaper

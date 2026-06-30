@@ -70,11 +70,13 @@ export function StepNavigation() {
                 onClick={() => jumpToSection(step.id)}
               >
                 <span
-                  className="grid h-8 w-8 shrink-0 place-items-center border-3 border-ink bg-ink font-pixel text-sm font-black text-white"
+                  className={`grid h-9 w-9 shrink-0 place-items-center border-3 border-ink font-sans text-lg font-black leading-none shadow-pixel-sm ${
+                    isActive ? "bg-white text-ink" : "bg-paper text-ink"
+                  }`}
                 >
                   {index + 1}
                 </span>
-                <span className="font-pixel text-sm font-black uppercase leading-tight">
+                <span className="font-pixel text-base font-black uppercase leading-tight">
                   {step.label}
                 </span>
               </button>

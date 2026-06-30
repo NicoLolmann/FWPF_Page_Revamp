@@ -50,7 +50,9 @@ export function BallotPaper({
           <p className="font-pixel text-sm font-black uppercase text-ink/70">
             Mein Stimmzettel
           </p>
-          <h2 className="mt-2 font-pixel text-xl font-black sm:text-2xl">Prioritäten festlegen</h2>
+          <h2 className="mt-2 font-pixel text-xl font-black sm:text-[1.65rem]">
+            Prioritäten festlegen
+          </h2>
         </div>
         <div className="border-4 border-ink bg-amber px-3 py-2 font-pixel text-[11px] font-black uppercase shadow-pixel-sm sm:text-xs">
           {selectedCount}/{minimumSlotCount} Mindestauswahl
@@ -59,12 +61,10 @@ export function BallotPaper({
 
       <div className="mt-4 border-4 border-ink bg-paper p-3 sm:p-4">
         <p className="font-pixel text-sm font-black uppercase">Prioritätsregel</p>
-        <p className="mt-2 text-sm leading-6">
-          Ziehe Module aus der linken Liste hierher. Als Orientierung sollten
-          mindestens 3 Module pro gewünschtem Modul priorisiert werden. Bei{" "}
-          {desiredSws} SWS sind das {desiredModuleCount} gewünschte Module und
-          mindestens {minimumSlotCount} Prioritäten. Platz 1 ist die höchste
-          Priorität.
+        <p className="mt-2 text-[17px] leading-7">
+          Ziehe Module auf den Stimmzettel. Empfehlung: mindestens{" "}
+          {minimumSlotCount} Prioritäten für {desiredModuleCount} gewünschte
+          Module. Platz 1 zählt am stärksten.
         </p>
       </div>
 
@@ -105,8 +105,8 @@ export function BallotPaper({
         }`}
       >
         <h3 className="font-pixel text-sm font-black uppercase">Auf keinen Fall</h3>
-        <p className="mt-2 text-sm leading-6">
-          Module hier ablegen, wenn sie nicht besucht werden sollen.
+        <p className="mt-2 text-[17px] leading-7">
+          Lege hier Module ab, die du ausschließen möchtest.
         </p>
         <div className="mt-3 grid gap-3">
           {neverModules.map((module) => (

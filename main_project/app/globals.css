@@ -1,12 +1,14 @@
-@import url("https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Pixelify+Sans:wght@400..700&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --font-pixel: "Courier New";
-  --font-sans: Arial;
+  --font-pixel: "Pixelify Sans";
+  --font-sans: "Atkinson Hyperlegible";
+  --ink: #24211e;
+  --ink-shadow: rgba(36, 33, 30, 0.9);
   color-scheme: light;
 }
 
@@ -22,9 +24,11 @@ html {
 
 body {
   margin: 0;
-  color: #171717;
+  color: var(--ink);
   background: #d7d3cb;
   font-family: var(--font-sans), Arial, sans-serif;
+  font-size: 16.5px;
+  line-height: 1.55;
 }
 
 button,
@@ -55,15 +59,15 @@ input {
 }
 
 .pixel-panel {
-  border: 4px solid #171717;
+  border: 3px solid var(--ink);
   background: #ffffff;
-  box-shadow: 6px 6px 0 #171717;
+  box-shadow: 4px 4px 0 var(--ink-shadow);
 }
 
 .pixel-button {
-  border: 3px solid #171717;
+  border: 2px solid var(--ink);
   background: #e9b3b6;
-  box-shadow: 4px 4px 0 #171717;
+  box-shadow: 3px 3px 0 var(--ink-shadow);
   font-family: var(--font-pixel), monospace;
   font-weight: 800;
   letter-spacing: 0;
@@ -74,12 +78,105 @@ input {
 
 .pixel-button:hover {
   transform: translate(2px, 2px);
-  box-shadow: 2px 2px 0 #171717;
+  box-shadow: 1px 1px 0 var(--ink-shadow);
+}
+
+@keyframes immersive-rainbow-sweep {
+  0% {
+    background-position: 0% 50%;
+    filter: saturate(1.15);
+  }
+  100% {
+    background-position: 300% 50%;
+    filter: saturate(1.6);
+  }
+}
+
+.immersive-rainbow-button {
+  position: relative;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.immersive-rainbow-button:hover {
+  background-image: linear-gradient(
+    90deg,
+    #ff4d6d,
+    #ffb703,
+    #70e000,
+    #00bbf9,
+    #9b5de5,
+    #ff4d6d
+  );
+  background-size: 300% 100%;
+  animation: immersive-rainbow-sweep 900ms linear infinite;
+  box-shadow:
+    3px 3px 0 var(--ink-shadow),
+    0 0 0 4px #ffffff,
+    0 0 18px rgba(255, 183, 3, 0.75);
+}
+
+.hud-election-timer {
+  position: relative;
+  width: min(16rem, calc(100vw - 2.5rem));
+  aspect-ratio: 2 / 1;
+  image-rendering: pixelated;
+  filter: drop-shadow(4px 4px 0 rgba(0, 0, 0, 0.45));
+}
+
+.hud-election-timer__frame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  image-rendering: pixelated;
+  user-select: none;
+}
+
+.hud-election-timer__time {
+  position: absolute;
+  left: 18%;
+  right: 18%;
+  top: 39%;
+  z-index: 1;
+  text-align: center;
+  text-shadow: 1px 1px 0 rgba(255, 245, 211, 0.65);
+}
+
+/* Keep the pixel outline, but make document panels less heavy than the first draft. */
+.border-4.border-ink {
+  border-width: 3px;
+}
+
+.border-3.border-ink {
+  border-width: 2px;
+}
+
+.border-t-4.border-ink {
+  border-top-width: 3px;
+}
+
+.border-r-4.border-ink {
+  border-right-width: 3px;
+}
+
+.border-b-4.border-ink {
+  border-bottom-width: 3px;
+}
+
+.border-l-4.border-ink {
+  border-left-width: 3px;
+}
+
+.border-x-4.border-ink {
+  border-left-width: 3px;
+  border-right-width: 3px;
 }
 
 .pixel-range {
   height: 28px;
-  border: 4px solid #171717;
+  border: 3px solid var(--ink);
   box-shadow: inset 4px 4px 0 rgba(23, 23, 23, 0.12);
   appearance: none;
   cursor: pointer;
@@ -100,9 +197,9 @@ input {
   width: 26px;
   height: 38px;
   margin-top: -9px;
-  border: 4px solid #171717;
+  border: 3px solid var(--ink);
   background: #c9232d;
-  box-shadow: 4px 4px 0 #171717;
+  box-shadow: 3px 3px 0 var(--ink-shadow);
   appearance: none;
 }
 
@@ -120,10 +217,10 @@ input {
 .pixel-range::-moz-range-thumb {
   width: 26px;
   height: 38px;
-  border: 4px solid #171717;
+  border: 3px solid var(--ink);
   border-radius: 0;
   background: #c9232d;
-  box-shadow: 4px 4px 0 #171717;
+  box-shadow: 3px 3px 0 var(--ink-shadow);
 }
 
 @keyframes ballot-to-box {
@@ -238,7 +335,7 @@ input {
     repeat-y,
     repeat-y,
     repeat;
-  box-shadow: 6px 6px 0 #171717;
+  box-shadow: 4px 4px 0 var(--ink-shadow);
 }
 
 .pixquest-panel-yellow,
@@ -277,7 +374,7 @@ input {
 }
 
 .pixquest-panel-yellow {
-  box-shadow: 4px 4px 0 #171717;
+  box-shadow: 3px 3px 0 var(--ink-shadow);
 }
 
 .pixquest-chip-yellow {
@@ -326,10 +423,10 @@ input {
 
 .header-pixel-panel-shadow {
   box-shadow: none;
-  filter: drop-shadow(6px 6px 0 #171717);
+  filter: drop-shadow(4px 4px 0 var(--ink-shadow));
 }
 
 .header-pixel-chip-shadow {
   box-shadow: none;
-  filter: drop-shadow(3px 3px 0 #171717);
+  filter: drop-shadow(2px 2px 0 var(--ink-shadow));
 }
